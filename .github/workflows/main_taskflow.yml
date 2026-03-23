@@ -9,13 +9,12 @@ jobs:
 build-and-deploy:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout code
-    uses: actions/checkout@v4   # ✅ updated
+    uses: actions/checkout@v4
 
   - name: Setup Node.js
-    uses: actions/setup-node@v4   # ✅ FIXED
+    uses: actions/setup-node@v4
     with:
       node-version: '22'
 
@@ -27,7 +26,6 @@ steps:
   - name: Deploy to Azure
     uses: azure/webapps-deploy@v2
     with:
-      app-name: <taskflow>
+      app-name: taskflow
       publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
       package: .
-```
